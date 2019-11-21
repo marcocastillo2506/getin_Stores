@@ -25,9 +25,9 @@ const body = props => (
       }
       </td>
       <td>
-      { data2.map(x =>{
-        return (<Row val = {props.doSum(x, null)}/>);
-        })
+      {
+       <Row val = {props.combinedTotal(props.totals, "visitors","peasants",0)}/>
+
       }
       </td>
       <td>
@@ -43,9 +43,9 @@ const body = props => (
       }
       </td>
       <td>
-      { data2.map(x =>{
-        return (<Row val = {props.doSum(x, "persuasion")}/>);
-        })
+      {
+       <Row val = {props.combinedTotal(props.totals, "tickets","visitors",  0)}/>
+
       }
       </td>
       <td>
@@ -55,9 +55,8 @@ const body = props => (
       }
       </td>
       <td>
-      { data2.map(x =>{
-        return (<Row val = {props.doSum(x, "average")}/>);
-        })
+      {
+         <Row val = {props.combinedTotal(props.totals, "revenue","tickets",  0)}/>
       }
       </td>
       <td>
@@ -76,12 +75,6 @@ const body = props => (
       { data2.map(x =>{
         return (<Row val = {props.doSum(x, "permanenceCount")}/>);
         })
-      }
-      </td>
-      <td>
-      {
-       <Row place = {props.granTotals(props.totals, "peasants")}/>
-
       }
       </td>
       </tbody>
