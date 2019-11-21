@@ -6,7 +6,7 @@ class App extends Component {
   render(){
     return(
     <div>
-      <h1> Getin Stores </h1>
+      <div><img style={{width:'20%',marginLeft:'24%'}} src='https://getin.mx/assets/imgs/seo/getin-logo-twitter.jpg' /></div>
       <Table />
     </div>
     )

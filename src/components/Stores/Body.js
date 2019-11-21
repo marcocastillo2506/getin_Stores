@@ -4,39 +4,87 @@ import Row from './Row.js';
 import data from '../../data/assignedStore.json'
 import data2 from '../../data/brandDateData.json'
 
-class Body extends Component {
-  constructor(props){
-    super(props)
-    this.doSum =this.doSum.bind(this)
-  }
-
-  doSum(data, property){
-    var values = []
-    var suma = 0;
-    data.map((obj, index)=>{
-    for( var valor in obj[property] ) {
-        if( obj[property].hasOwnProperty( valor ) ) {
-          suma += parseFloat( obj[property][valor] );
-        }
-      }
-      values.push(suma)
-  })
-  return values
-};
-  render(){
-    return(
+const body = props => (
       <tbody>
-      <th>
+      <td>
       { data.data.map(nameDetail =>{
-        return (<Row peasants = {nameDetail.name} />);
+        return (<Row val = {nameDetail.name} />);
         })
       }
-      </th>
-      <th>
-      <Row sum = {this.doSum(data2,"peasants")} />
-      </th>
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "peasants")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "visitors")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, null)}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "cabinet")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "tickets")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "persuasion")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "revenue")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "average")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "items")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "imperticket")}/>);
+        })
+      }
+      </td>
+      <td>
+      { data2.map(x =>{
+        return (<Row val = {props.doSum(x, "permanenceCount")}/>);
+        })
+      }
+      </td>
+      <td>
+      {
+       <Row place = {props.granTotals(props.totals, "peasants")}/>
+
+      }
+      </td>
       </tbody>
-    )
-  };
-}
-export default Body;
+    );
+
+export default body;
